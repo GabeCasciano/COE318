@@ -1,13 +1,12 @@
 /**
  * A Resistor models an ideal resistor that obeys Ohm's Law.
  *
- * @author YourName
+ * @author Gabriel Casciano, 500744076
  */
 package coe318.lab1;
 
 public class Resistor {
     //Instance (state) variables
-    //TODO Add instance variables (Hint: you only need 2!)
     double  resistance ,voltage,current;
 
     /**
