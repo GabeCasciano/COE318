@@ -8,7 +8,7 @@ package coe318.lab1;
 public class Resistor {
     //Instance (state) variables
     //TODO Add instance variables (Hint: you only need 2!)
-    double  resistance,voltage,current;
+    double  resistance ,voltage,current;
 
     /**
      * Create an ideal Resistor. The initial current through and voltage across
@@ -27,7 +27,6 @@ public class Resistor {
      * @return the resistance
      */
     public double getResistance() {
-
         return resistance;
     }
 
@@ -37,7 +36,7 @@ public class Resistor {
      * @return the voltage
      */
     public double getVoltage() {
-        return voltage;
+        return ((voltage != 0)?(voltage):(current*resistance));
     }
 
     /**
@@ -55,7 +54,7 @@ public class Resistor {
      * @return the current
      */
     public double getCurrent() {
-        return current;
+        return ((current!= 0)?(current):(voltage/resistance));
     }
 
     /**
@@ -73,7 +72,7 @@ public class Resistor {
      * @return the power
      */
     public double getPower() {
-        return voltage*current;
+        return getCurrent()*getVoltage();
     }
 
     /**
@@ -100,7 +99,7 @@ public class Resistor {
      */
     public static void main(String[] args) {
         Resistor r1, r2;
-        /*System.out.println("Creating a 50 Ohm resistor (r1)");
+        System.out.println("Creating a 50 Ohm resistor (r1)");
         r1 = new Resistor(50.0);
         System.out.println("Its resistance is "
                 + r1.getResistance() + " Ohms");
@@ -129,10 +128,6 @@ public class Resistor {
         System.out.println("Setting r2's current to 3 Amps");
         r2.setCurrent(3.0);
         System.out.println("Its voltage is "
-                + r2.getVoltage() + " Volts");*/
-        r1 = new Resistor(50 );
-        r1.setCurrent(5);
-        r1.setVoltage(2);
-        System.out.println("The power of the resistor is: "+r1.getPower()+" Watts");
+                + r2.getVoltage() + " Volts");
     }
 }
