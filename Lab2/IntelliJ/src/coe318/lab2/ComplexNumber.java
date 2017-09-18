@@ -1,11 +1,11 @@
-package coe318.lab2;
 /**
  * ComplexNumber models a complex number expressed
  * in rectangular form (real and imaginary parts).
  * It is an <em>immutable</em> object.
  *
- * @author Your Name
+ * @author Gabriel Casciano, 500744076
  */
+package coe318.lab2;
 public class ComplexNumber {
     //Instance variable declarations
     double real, imaginary;
@@ -73,7 +73,10 @@ public class ComplexNumber {
      * <b>NOT</b> modified.
      * @return 1.0 / this
      */
-    public ComplexNumber reciprocal() { return new ComplexNumber(real, -imaginary); }
+    public ComplexNumber reciprocal() {
+        Double denominator = (Math.pow(real,2))+(Math.pow(imaginary,2));
+        return new ComplexNumber(real/denominator, -imaginary/denominator);
+    }
     /**
      * Returns a new ComplexNumber that is
      * <em>this</em> divided by <em>z</em>.
@@ -83,13 +86,10 @@ public class ComplexNumber {
      * @return this / z
      */
     public ComplexNumber divide(ComplexNumber z) {
-        ComplexNumber temp1 = new ComplexNumber(z.reciprocal().real, z.reciprocal().imaginary);
-        ComplexNumber temp2 = new ComplexNumber(real, imaginary);
-
-        z = z.multiply(temp1);
-        temp2 = temp1.multiply(temp1);
-
-        return new ComplexNumber(z.real/temp2.real, z.imaginary/temp2.real);
+        Double realPart = (real*z.real)+(imaginary*z.imaginary);
+        Double imaginaryPart = (imaginary*z.real)-(real*z.imaginary);
+        Double denominator = (Math.pow(z.real,2))+(Math.pow(z.imaginary,2));
+        return new ComplexNumber(realPart/denominator, imaginaryPart/denominator);
     }
     /**
      * Returns a String representation of
