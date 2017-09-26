@@ -8,7 +8,7 @@
 package coe318.lab2;
 public class ComplexNumber {
     //Instance variable declarations
-    double real, imaginary;
+    private double real, imaginary;
     /**
      * Construct a ComplexNumber given its
      * real and imaginary parts.
